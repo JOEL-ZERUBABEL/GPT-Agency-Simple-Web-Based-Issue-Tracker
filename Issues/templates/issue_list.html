@@ -1,0 +1,41 @@
+{% extends 'issues.base.html' %}
+{% block content %}
+<h1>All Issues</h1>
+  <a href="/issues/issue/create">
+  
+  <button>Add Issues</button>  </a>
+
+<table class="table table-striped table-boardered">
+    <thead>
+       <tr>
+         <th>Title</th>
+         <th>Description</th>
+         <th>Status</th>
+         <th>Priority</th>
+         <th>Created at</th>
+         <th>Updated at</th>
+       </tr>
+    </thead>
+       <tbody>
+           {% for issues in show %}
+               <tr>
+                 <td>{{issues.title}}</td>
+                 <td>{{issues.description}}</td>
+                 <td>{{issues.status}}</td>
+                 <td>{{issues.priority}}</td>
+                 <td>{{issues.created_at}}</td>
+                 <td>{{issues.updated_at}}</td>
+                 <td>
+                  <a href="{% url 'update_issue' issues.id %}">
+                    <button>to update the issue </button></a>
+                 </td>
+                  
+               </tr>
+               {% endfor %}
+       </tbody>
+
+
+    
+</table>
+{% endblock %}
+                 

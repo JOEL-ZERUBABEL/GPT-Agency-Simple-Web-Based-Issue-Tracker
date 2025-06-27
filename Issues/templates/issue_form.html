@@ -1,0 +1,14 @@
+{% extends 'issues.base.html' %}
+{% block content %}
+  <h1>Add or Update Issue</h1>
+  <a href="{% url 'issue_list' %}">
+    <button>Back to List</button>
+  </a>
+
+  <form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Save Issue"></input>     
+  </form>
+  
+{% endblock %}
